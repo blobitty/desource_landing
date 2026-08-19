@@ -9,8 +9,8 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Desource",
-  description: "Desource is building a calmer, trust-based future for information.",
+  title: "Sudo Source",
+  description: "Sudo Source is building simulation systems for human development.",
 };
 
 export default function RootLayout({
