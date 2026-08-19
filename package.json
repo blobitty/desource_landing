@@ -5,12 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:cloudflare": "opennextjs-cloudflare build",
     "start": "next start",
     "lint": "eslint",
-    "preview": "bun run build && opennextjs-cloudflare preview",
-    "deploy": "bun run build && opennextjs-cloudflare deploy",
-    "upload": "bun run build && opennextjs-cloudflare upload"
+    "preview": "bun run build && wrangler preview",
+    "deploy": "bun run build && wrangler deploy",
+    "upload": "bun run build && owrangler upload"
   },
   "dependencies": {
     "next": "16.2.1",
