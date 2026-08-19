@@ -1,32 +1,33 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "main": ".open-next/worker.js",
   "name": "sudo-source-landing",
+  "main": ".open-next/worker.js",
   "compatibility_date": "2026-08-15",
   "compatibility_flags": [
     "nodejs_compat",
-    "global_fetch_strictly_public",
+    "global_fetch_strictly_public"
   ],
+  "workers_dev": true,
   "assets": {
     "directory": ".open-next/assets",
-    "binding": "ASSETS",
+    "binding": "ASSETS"
   },
   "services": [
     {
       "binding": "WORKER_SELF_REFERENCE",
-      "service": "sudo-source-landing",
-    },
+      "service": "sudo-source-landing"
+    }
   ],
   "r2_buckets": [
     {
       "binding": "NEXT_INC_CACHE_R2_BUCKET",
-      "bucket_name": "desource-landing-opennext-cache",
-    },
+      "bucket_name": "desource-landing-opennext-cache"
+    }
   ],
   "images": {
-    "binding": "IMAGES",
+    "binding": "IMAGES"
   },
   "observability": {
-    "enabled": true,
-  },
+    "enabled": true
+  }
 }
