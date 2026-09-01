@@ -12,7 +12,7 @@ import { useEffect, useRef, useState } from "react";
 const COLUMNS = [
   "Sudo Source Inc. is a technology company committed to making cutting-edge tools accessible to everyone, so the world can be shaped by the many rather than the few.",
   "As the internet expands and grows smarter with AI, we seek to harness its potential to improve human cognition and connectivity in an increasingly complex world.",
-  "We’re building simulated environments and improving the social coordination of agents. If our work interests you, please reach out to hello@ssudo.com.",
+  "We’re building simulated environments to improving the social coordination between people and agents. If our work interests you, please reach out to b@sudosrc.com.",
 ] as const;
 export default function ManifestoSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
