@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-const SOCIAL_HANDLE = "@sudosource";
-const SOCIAL_URL = "https://x.com/sudosource";
-const EMAIL = "HELLO@sudosource.com";
+const SOCIAL_HANDLE = "@SudoSourceInc";
+const SOCIAL_URL = "https://x.com/SudoSourceInc";
+const EMAIL = "b@sudosrc.com";
 
 export default function SiteFooter() {
   return (
