@@ -24,7 +24,11 @@ const CHARACTER_RAMP =
 
 function formatTimestamp(date: Date) {
   const month = date.toLocaleString("en-US", { month: "short" }).toUpperCase();
-  const day = `${date.getDate()}`.padStart(2, "0");
+  const day = date.getDate();
+  const daySuffix =
+    day % 100 >= 11 && day % 100 <= 13
+      ? "TH"
+      : ({ 1: "ST", 2: "ND", 3: "RD" }[day % 10] ?? "TH");
   const year = date.getFullYear();
   const time = date
     .toLocaleString("en-US", {
@@ -35,7 +39,7 @@ function formatTimestamp(date: Date) {
     })
     .toUpperCase();
 
-  return `${month} ${day}TH, ${year} • ${time}`;
+  return `${month} ${day}${daySuffix}, ${year} • ${time}`;
 }
 
 function mapValue(
@@ -182,19 +186,18 @@ export default function AsciiHero() {
     () => true,
     () => false,
   );
-  const clockLabelRef = useRef(formatTimestamp(new Date()));
-  const nowLabel = useSyncExternalStore(
-    (onStoreChange) => {
-      const tick = () => {
-        clockLabelRef.current = formatTimestamp(new Date());
-        onStoreChange();
-      };
-      const interval = window.setInterval(tick, 1000);
-      return () => window.clearInterval(interval);
-    },
-    () => clockLabelRef.current,
-    () => formatTimestamp(new Date("2026-04-01T00:00:00Z")),
+  const [nowLabel, setNowLabel] = useState(() =>
+    formatTimestamp(new Date("2026-04-01T00:00:00Z")),
   );
+
+  useEffect(() => {
+    const tick = () => setNowLabel(formatTimestamp(new Date()));
+
+    tick();
+    const interval = window.setInterval(tick, 1000);
+
+    return () => window.clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const panel = panelRef.current;

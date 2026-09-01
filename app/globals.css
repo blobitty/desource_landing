@@ -292,6 +292,8 @@ select {
 }
 
 .site-footer {
+  display: flex;
+  justify-content: flex-end;
   padding: clamp(1.5rem, 4vw, 2.25rem) clamp(1rem, 4vw, 2rem);
   background-color: #080808;
   background-image: radial-gradient(
@@ -309,8 +311,9 @@ select {
   align-items: center;
   justify-content: flex-end;
   gap: clamp(0.85rem, 2.5vw, 1.35rem);
-  max-width: 72rem;
-  margin-inline: auto;
+  width: auto;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .site-footer__flag {
